@@ -14,15 +14,15 @@ Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Profile - ESSENCIAIS para o link funcionar
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    
     // Transactions
     Route::resource('transactions', TransactionController::class);
     
     // Categories
-    Route::resource('categories', CategoryController::class);
-    
-    // Profile
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::resource('categories', CategoryController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';

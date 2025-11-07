@@ -1,4 +1,3 @@
-{{-- resources/views/profile/edit.blade.php --}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -39,6 +38,9 @@
                         </div>
 
                         <div class="flex items-center justify-end">
+                            <a href="{{ route('dashboard') }}" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition mr-2">
+                                Cancelar
+                            </a>
                             <button type="submit" 
                                     class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
                                 Atualizar Perfil

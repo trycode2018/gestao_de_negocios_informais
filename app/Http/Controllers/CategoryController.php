@@ -12,7 +12,7 @@ class CategoryController extends Controller
     {
         $user = auth()->user();
         $categories = Category::where('user_id', $user->id)
-            ->withCount('transactions')
+            ->withCount('transactions') // Isso conta as transações relacionadas
             ->orderBy('type')
             ->orderBy('name')
             ->get();

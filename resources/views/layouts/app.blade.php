@@ -1,4 +1,3 @@
-{{-- resources/views/layouts/app.blade.php --}}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,6 +13,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
@@ -25,7 +27,7 @@
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
                             <a href="{{ route('dashboard') }}" class="text-xl font-bold text-gray-800">
-                                <i class="fas fa-chart-line mr-2"></i>Gestão de Negocios
+                                <i class="fas fa-chart-line mr-2"></i>Gestão Informal
                             </a>
                         </div>
 
@@ -56,10 +58,13 @@
                                     </div>
                                 </button>
                             </x-slot>
+
                             <x-slot name="content">
+                                <!-- Perfil - AGORA FUNCIONAL -->
                                 <x-dropdown-link :href="route('profile.edit')">
                                     <i class="fas fa-user mr-2"></i>{{ __('Perfil') }}
                                 </x-dropdown-link>
+
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -107,6 +112,7 @@
                     </div>
 
                     <div class="mt-3 space-y-1">
+                        <!-- Perfil no menu mobile -->
                         <x-responsive-nav-link :href="route('profile.edit')">
                             <i class="fas fa-user mr-2"></i>{{ __('Perfil') }}
                         </x-responsive-nav-link>
