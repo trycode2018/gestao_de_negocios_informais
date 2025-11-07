@@ -70,7 +70,7 @@
                         </div>
                         <div>
                             <p class="text-sm font-medium text-gray-600">Total Receitas</p>
-                            <p class="text-2xl font-bold text-green-600">R$ {{ number_format($totalIncome, 2, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-green-600">Kz {{ number_format($totalIncome, 2, ',', '.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         </div>
                         <div>
                             <p class="text-sm font-medium text-gray-600">Total Despesas</p>
-                            <p class="text-2xl font-bold text-red-600">R$ {{ number_format($totalExpense, 2, ',', '.') }}</p>
+                            <p class="text-2xl font-bold text-red-600">Kz {{ number_format($totalExpense, 2, ',', '.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                         <div>
                             <p class="text-sm font-medium text-gray-600">Saldo</p>
                             <p class="text-2xl font-bold {{ $totalIncome - $totalExpense >= 0 ? 'text-blue-600' : 'text-red-600' }}">
-                                R$ {{ number_format($totalIncome - $totalExpense, 2, ',', '.') }}
+                                Kz {{ number_format($totalIncome - $totalExpense, 2, ',', '.') }}
                             </p>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $transaction->type == 'income' ? 'text-green-600' : 'text-red-600' }}">
-                                                {{ $transaction->type == 'income' ? '+' : '-' }} R$ {{ number_format($transaction->amount, 2, ',', '.') }}
+                                                {{ $transaction->type == 'income' ? '+' : '-' }} Kz {{ number_format($transaction->amount, 2, ',', '.') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                 <div class="flex space-x-2">
