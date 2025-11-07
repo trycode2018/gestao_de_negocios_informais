@@ -11,7 +11,11 @@ class Transaction extends Model
 
     use HasFactory;
 
-    protected $fillable = ['user_id', 'category_id', 'type', 'amount', 'description', 'date'];
+    protected $fillable = ['user_id', 'category_id', 'type', 'amount', 
+    'description', 'date', 'is_recurring'];
+
+    const TYPE_INCOME = 'income';
+    const TYPE_EXPENSE = 'expense';
 
     protected $casts = [
         'date' => 'date',

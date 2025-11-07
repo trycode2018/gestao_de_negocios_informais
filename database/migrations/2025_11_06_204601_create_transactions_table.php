@@ -12,14 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
-             $table->id();
-             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-             $table->enum('type', ['income', 'expense']);
-             $table->decimal('amount', 10, 2);
-             $table->string('description');
-             $table->date('date');
-             $table->timestamps();
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->enum('type', ['income', 'expense']);
+            $table->decimal('amount', 10, 2);
+            $table->string('description');
+            $table->date('date');
+            $table->boolean('is_recurring')->default(false);
+            $table->timestamps();
+        
+            $table->index(['user_id', 'date']);
+            $table->index(['user_id', 'type']);
         });
     }
 

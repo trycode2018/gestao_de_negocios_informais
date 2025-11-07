@@ -3,14 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
+// routes/web.php
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    Route::resource('transactions', TransactionController::class);
+    Route::resource('categories', CategoryController::class);
+    
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 });

@@ -20,23 +20,28 @@ class CategorySeeder extends Seeder
         $users = User::all();
 
         foreach ($users as $user) {
-            $categories = [
-                ['name' => 'Vendas', 'type' => 'income', 'color' => 'green'],
-                ['name' => 'Salário', 'type' => 'income', 'color' => 'blue'],
-                ['name' => 'Outras Receitas', 'type' => 'income', 'color' => 'teal'],
-                ['name' => 'Compras', 'type' => 'expense', 'color' => 'red'],
-                ['name' => 'Aluguel', 'type' => 'expense', 'color' => 'yellow'],
-                ['name' => 'Transporte', 'type' => 'expense', 'color' => 'purple'],
-                ['name' => 'Alimentação', 'type' => 'expense', 'color' => 'orange'],
-                ['name' => 'Outras Despesas', 'type' => 'expense', 'color' => 'gray'],
-            ];
+              $defaultCategories = [
+                    // Receitas
+                    ['name' => 'Vendas', 'type' => 'income', 'color' => '#10B981', 'icon' => '💰'],
+                    ['name' => 'Serviços', 'type' => 'income', 'color' => '#10B981', 'icon' => '🔧'],
+                    ['name' => 'Investimentos', 'type' => 'income', 'color' => '#10B981', 'icon' => '📈'],
+                    
+                    // Despesas
+                    ['name' => 'Matéria-prima', 'type' => 'expense', 'color' => '#EF4444', 'icon' => '📦'],
+                    ['name' => 'Transporte', 'type' => 'expense', 'color' => '#EF4444', 'icon' => '🚗'],
+                    ['name' => 'Alimentação', 'type' => 'expense', 'color' => '#EF4444', 'icon' => '🍽️'],
+                    ['name' => 'Aluguel', 'type' => 'expense', 'color' => '#EF4444', 'icon' => '🏠'],
+                    ['name' => 'Utilidades', 'type' => 'expense', 'color' => '#EF4444', 'icon' => '💡'],
+                ];
 
-            foreach ($categories as $category) {
+
+            foreach ($defaultCategories as $category) {
                 Category::create([
                     'user_id' => $user->id,
                     'name' => $category['name'],
                     'type' => $category['type'],
                     'color' => $category['color'],
+                    'icon' => $category['icon'],
                 ]);
             }
         }
